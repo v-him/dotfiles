@@ -1,38 +1,38 @@
-*.foreground: #C6C6C6
-*.background: #1C1C1C
-*.cursorColor: #444444
+*.foreground: #ebdbb2
+*.background: #282828
+*.cursorColor: #fbf1c7
 
-! black 236 238
-*.color0: #303030
-*.color8: #444444
+! black 235 245
+*.color0: #282828
+*.color8: #928374
 
-! red 167
-*.color1: #d75f5f
-*.color9: #d75f5f
+! red 124 167
+*.color1: #cc241d
+*.color9: #fb4934
 
-! green 108
-*.color2: #87AF87
-*.color10: #87AF87
+! green 106 142
+*.color2: #98971a
+*.color10: #b8bb26
 
-! yellow 221
-*.color3: #ffd75f
-*.color11: #ffd75f
+! yellow 172 214
+*.color3: #d79921
+*.color11: #fabd2f
 
-! blue 110
-*.color4: #87afd7
-*.color12: #87afd7
+! blue 66 109
+*.color4: #458588
+*.color12: #83a598
 
-! magenta 146
-*.color5: #afafd7
-*.color13: #afafd7
+! magenta 132 175
+*.color5: #b16286
+*.color13: #d3869b
 
-! cyan 75
-*.color6: #afd7ff
-*.color14: #afd7ff
+! cyan 72 108
+*.color6: #698d6a
+*.color14: #8ec07c
 
-! white 239 15
-*.color7: #e4e4e4
-*.color15: #ffffff
+! white 246 223
+*.color7: #a89984
+*.color15: #ebdbb2
 
 
 URxvt*font: xft:DejaVuSansMono:size=14:antialias=true
