@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-rm -rf "$HOME/.config/nvim"
-ln -s "$HOME/dotfiles/nvim" "$HOME/.config"
+directories=("X11" "nvim" "i3")
 
-rm -rf "$HOME/.config/X11"
-ln -s "$HOME/dotfiles/X11" "$HOME/.config"
-
+for dir in "${directories[@]}"; do
+	rm -rf "$HOME/.config/$dir"
+	ln -s "$HOME/dotfiles/$X11" "$HOME/.config"
+done
