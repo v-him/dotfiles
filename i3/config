@@ -13,26 +13,11 @@ set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono 12
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
-
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -40,6 +25,9 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# Default workspace layout
+workspace_layout tabbed
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -56,11 +44,6 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run
-# A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -102,15 +85,6 @@ bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-# bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -196,29 +170,32 @@ focus_follows_mouse no
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+
+    font pango:DejaVu Sans Mono 12
     status_command i3status --config ~/.config/i3/i3status.conf
+
+    mode hide
+    modifier Mod1
     
     # Disable all tray icons
     tray_output none
 
     # tray_output primary
     colors {
-        background $black1
-        statusline $white2
-        separator $white2
+        background #fbf1c7
+        statusline #3c3836
+        separator #3c3836
 
         # border background text
-        focused_workspace 	$background $background $red2
-        active_workspace 	$black2 $black1 $white2
-        inactive_workspace 	$black1 $black2 $foreground
+        focused_workspace 	#fbf1c7 $background $red2
+        active_workspace 	#fbf1c7 $background $foreground
+        inactive_workspace 	#fbf1c7 $background $foreground
         urgent_workspace 	$red1 $red1 $white2
         binding_mode 		$background $red2 $white2
     }
 }
 
-set $i3lockwall i3lock --beep --ignore-empty-password --show-failed-attempts --color=282828 --show-keyboard-layout
-
-bindsym $mod+CTRL+Shift+l exec --no-startup-id $i3lockwall
+set $i3lockwall i3lock --beep --ignore-empty-password --show-failed-attempts --color=fbf1c7 --show-keyboard-layout
 
 # shutdown / restart / suspend...
 
@@ -283,17 +260,8 @@ set_from_resource $white2 color15 #ebdbb2
 # DESIGN #
 ##########
 
-# hide borders
-# hide_edge_borders both
-
 # class border backgr. text indicator child_border 
-client.focused 		$blue1 $background $foreground $blue1 $blue1
-client.focused_inactive #333333 $background $foreground #484e50
-client.unfocused 	#333333 #222222 #888888 #292d2e #222222
-client.urgent 		$red1 $red1 $white2 $red1 $red1
-client.placeholder 	#000000 #0c0c0c $white2 #000000 #0c0c0c
-
-for_window [class="URxvt*"] border pixel 1
+client.focused 		$cyan1 $background $foreground $cyan1 $cyan1
 
 set $mode_display Config monitor resolution - Default config (d)
 
