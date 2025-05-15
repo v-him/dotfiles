@@ -4,5 +4,5 @@ directories=("X11" "nvim" "i3")
 
 for dir in "${directories[@]}"; do
 	rm -rf "$HOME/.config/$dir"
-	ln -s "$HOME/dotfiles/$X11" "$HOME/.config"
+	ln -s "$HOME/dotfiles/$dir" "$HOME/.config"
 done
