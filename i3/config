@@ -13,7 +13,7 @@ set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:DejaVu Sans Mono 12
+font pango:CaskaydiaMono NFM 16
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -133,6 +133,9 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+# reload custom CAPSLOCK mapping
+bindsym $mod+z exec "setxkbmap -option 'caps:ctrl_modifier';xcape -e 'Caps_Lock=Escape' &"
+
 assign [class="URxvt" instance="urxvt"] $term
 assign [class="Brave-browser" instance="brave-browser"] $web
 assign [class="Zathura" instance="org.pwmt.zathura"] $doc
@@ -171,7 +174,6 @@ focus_follows_mouse no
 # finds out, if available)
 bar {
 
-    font pango:DejaVu Sans Mono 12
     status_command i3status --config ~/.config/i3/i3status.conf
 
     mode hide

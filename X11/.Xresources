@@ -35,9 +35,14 @@
 *.color15: #ebdbb2
 
 
-URxvt*font: xft:DejaVuSansMono:size=14:antialias=true
+URxvt*font: xft:CaskaydiaMono NFM:style=Regular:pixelsize=36:antialias=true
 URxvt*borderLess: false
 URxvt*externalBorder: 0
 URxvt*internalBorder: 4
 URxvt*scrollBar: false
 URxvt*saveLines: 5000
+
+URxvt*.perl-ext-common: default,resize-font
+
+URxvt.keysym.C-minus:     resize-font:smaller
+URxvt.keysym.C-equal:      resize-font:bigger
