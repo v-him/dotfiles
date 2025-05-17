@@ -214,3 +214,6 @@ set undofile
 " Command to compare changes made with original file
 command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
 	    \ | wincmd p | diffthis
+
+" Prevent clipboard from being flushed
+autocmd VimLeave * call system("echo -n $'" . escape(getreg(), "'") . "' | xsel --input --clipboard")
