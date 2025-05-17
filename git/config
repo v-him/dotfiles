@@ -1,0 +1,12 @@
+[include]
+	path = user
+[init]
+	defaultBranch = main
+[core]
+	pager = nvim -R
+[color]
+	pager = no
+[commit]
+	template = ~/.config/git/git-commit.template
+
+# vim: set ft=gitconfig:
