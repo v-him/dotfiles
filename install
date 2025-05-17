@@ -1,19 +1,18 @@
 #!/usr/bin/env bash
 
-directories=("X11" "nvim" "i3")
-for dir in "${directories[@]}"; do
-	rm -rf "${HOME%/}/.config/$dir"
-	ln -s "${HOME%/}/dotfiles/$dir" "${HOME%/}/.config"
+# To access environment variables
+source "$HOME/dotfiles/zsh/.zshenv"
+
+for dir in "$DOTFILES"/*/; do
+	dir=${dir%/}
+	rm -rf "$XDG_CONFIG_HOME/${dir##*/}"
+	ln -s "$dir" "$XDG_CONFIG_HOME"
 done
 
-mkdir -p "${HOME%/}/.config/zsh"
-ln -sf "${HOME%/}/dotfiles/zsh/.zshenv" "$HOME"
-ln -sf "${HOME%/}/dotfiles/zsh/.zshrc" "${HOME%/}/.config/zsh"
-ln -sf "${HOME%/}/dotfiles/zsh/.zprofile" "${HOME%/}/.config/zsh"
-ln -sf "${HOME%/}/dotfiles/zsh/aliases.zsh" "${HOME%/}/.config/zsh"
-rm -rf "${HOME%/}/.config/zsh/external"
-ln -s "${HOME%/}/dotfiles/zsh/external" "${HOME%/}/.config/zsh"
+# Exceptions
+ln -sf "$DOTFILES/zsh/.zshenv" "$HOME"
+ln -sf "$DOTFILES/.editorconfig" "$HOME"
 
-mkdir -p "${HOME%/}/.config/tmux"
-ln -sf "${HOME%/}/dotfiles/tmux/tmux.conf" "${HOME%/}/.config/tmux"
-ln -sf "${HOME%/}/dotfiles/tmux/style.conf" "${HOME%/}/.config/tmux"
+# Requirements
+mkdir -p "$XDG_DATA_HOME/tmux/plugins"
+mkdir -p "$XDG_CACHE_HOME/zsh"

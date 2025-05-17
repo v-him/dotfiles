@@ -11,5 +11,6 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export HISTFILE="$XDG_DATA_HOME/.zhistory"
 export HISTSIZE=10000
 export SAVEHIST=10000
+export LESSHISTFILE="$XDG_DATA_HOME/lesshst"
 
 export DOTFILES="${HOME%/}/dotfiles"
