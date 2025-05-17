@@ -104,6 +104,9 @@ vnoremap ˚ :m '<-2<CR>gv=gv
 " Other
 " ========================================
 
+" netrw history
+let g:netrw_home="$XDG_DATA_HOME/vim"
+
 " Sync clipboard with OS
 if system('uname -s') == "Darwin\n"
     set clipboard=unnamed "OSX
@@ -156,18 +159,18 @@ function Stl_set_highlight_groups()
 endfunction
 
 set statusline=
-set statusline+=%#StatusLineA#\ \ %{Stl_mode()}\ 
+set statusline+=%#StatusLineA#\ \ %{Stl_mode()}\
 set statusline+=%#StatusLineAB#
-set statusline+=%#StatusLineB#\ \ %{Stl_git()}\ 
+set statusline+=%#StatusLineB#\ \ %{Stl_git()}\
 set statusline+=%#StatusLineBC#
 set statusline+=%#StatusLineC#\ %t
 
 set statusline+=%=
-set statusline+=%y\ 
+set statusline+=%y\
 set statusline+=%#StatusLineBC#
-set statusline+=%#StatusLineB#\ %l:%c\ 
+set statusline+=%#StatusLineB#\ %l:%c\
 set statusline+=%#StatusLineAB#
-set statusline+=%#StatusLineA#\ %p%%\ 
+set statusline+=%#StatusLineA#\ %p%%\
 
 " Colorscheme
 set termguicolors
