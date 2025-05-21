@@ -20,6 +20,7 @@ font pango:CaskaydiaMono NFM 16
 # floating pop up automatically
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
+for_window [title="fzf-menu"] floating enable
 
 # special
 set_from_resource $foreground foreground #ebdbb2
