@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # To access environment variables
 source "$HOME/dotfiles/zsh/.zshenv"
@@ -9,11 +9,16 @@ for dir in "$DOTFILES"/*/; do
 	ln -s "$dir" "$XDG_CONFIG_HOME"
 done
 
-# Exceptions
-ln -sf "$DOTFILES/zsh/.zshenv" "$HOME"
-ln -sf "$DOTFILES/.editorconfig" "$HOME"
-
 # Requirements
 mkdir -p "$XDG_DATA_HOME/tmux/plugins"
 mkdir -p "$XDG_CACHE_HOME/zsh"
+mkdir -p "$XDG_DATA_HOME/zsh"
 mkdir -p "$XDG_DATA_HOME/vim"
+
+# Exceptions
+ln -sf "$DOTFILES/.editorconfig" "$HOME"
+ln -sf "$ZDOTDIR/.zshenv" "$HOME"
+
+rm -rf "$XDG_DATA_HOME/zsh/functions"
+ln -s "$ZDOTDIR/functions" "$XDG_DATA_HOME/zsh"
+
