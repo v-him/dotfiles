@@ -1,0 +1,6 @@
+# fe [FUZZY PATTERN] - Open the selected file(s) with the default editor
+
+cmd="$(printf 'enter:become(%s {+})' "${EDITOR:-vim}")"
+fzf --query="$1" --multi --select-1 --exit-0 --bind "$cmd"
+
+# vim: set ft=zsh:

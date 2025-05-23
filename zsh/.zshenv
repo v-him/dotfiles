@@ -15,6 +15,7 @@ path=("${HOME%/}/.local/bin" $path)
 
 typeset -U fpath FPATH
 fpath=($USER_FUNCTIONS $fpath)
+fpath=("$ZDOTDIR/external" $fpath) # borrowed scripts
 
 export HISTFILE="$XDG_DATA_HOME/zsh/.zhistory"
 export HISTSIZE=10000

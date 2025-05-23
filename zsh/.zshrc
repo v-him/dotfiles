@@ -1,9 +1,5 @@
 source "$ZDOTDIR/aliases.zsh"
 source "$ZDOTDIR/prompt.zsh"
-autoload "$USER_FUNCTIONS"/*(:t)
-
-# Borrowed scripts
-fpath=("$ZDOTDIR/external" $fpath)
 
 # Completion
 zmodload zsh/complist
@@ -26,7 +22,7 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
-# Set up fzf key bindings and fuzzy completion
+# Set up fzf
 source "$XDG_CONFIG_HOME/fzf/config.zsh"
 
 # Options
@@ -45,3 +41,6 @@ setopt PUSHD_SILENT
 setopt INTERACTIVE_COMMENTS
 setopt EXTENDED_GLOB
 setopt CORRECT
+
+# Keep at the end, after all fpath modifications
+autoload "$USER_FUNCTIONS"/**/*(.:t)
