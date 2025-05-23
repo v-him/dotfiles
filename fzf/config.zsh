@@ -26,14 +26,4 @@ FZF_DEFAULT_OPTS="
 --color=marker:#fb4934
 --color=prompt:#fb4934
 "
-# --color fg:#ebdbb2,bg:#282828,hl:#8ec07c
-# --color fg+:#fbf1c7,bg+:#32302f,hl+:#8ec07c
-# --color info:#b8bb26
-# --color prompt:#458588
-# --color spinner:#b16286
-# --color pointer:#b16286
-# --color marker:#d3869b
-# --color header:#665c54
-
-fpath=("$USER_FUNCTIONS/fzf" $fpath)
 

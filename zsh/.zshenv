@@ -14,7 +14,11 @@ typeset -U path PATH
 path=("${HOME%/}/.local/bin" $path)
 
 typeset -U fpath FPATH
-fpath=($USER_FUNCTIONS $fpath)
+
+for dir in "$USER_FUNCTIONS"/**/; do
+	fpath=($dir $fpath)
+done
+
 fpath=("$ZDOTDIR/external" $fpath) # borrowed scripts
 
 export HISTFILE="$XDG_DATA_HOME/zsh/.zhistory"
