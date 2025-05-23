@@ -89,3 +89,9 @@ bar {
         binding_mode 		$background $red2 $white2
     }
 }
+
+# Starts redshift
+exec --no-startup-id redshift
+
+# Wallpaper
+exec --no-startup-id feh --no-fehbg --bg-fill ~/pictures/vim-wallpaper.png
