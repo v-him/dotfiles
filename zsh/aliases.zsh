@@ -58,3 +58,6 @@ alias pbpaste='xsel -ob'
 
 # Quick reload
 alias rr="source $XDG_CONFIG_HOME/zsh/.zshrc"
+
+# tmuxp
+alias rec="tmuxp load --yes recording"
