@@ -14,6 +14,7 @@ mkdir -p "$XDG_DATA_HOME/tmux/plugins"
 mkdir -p "$XDG_CACHE_HOME/zsh"
 mkdir -p "$XDG_DATA_HOME/zsh"
 mkdir -p "$XDG_DATA_HOME/vim"
+mkdir -p "$USER_SCRIPTS"
 
 # Exceptions
 ln -sf "$DOTFILES/.editorconfig" "$HOME"
@@ -22,3 +23,5 @@ ln -sf "$ZDOTDIR/.zshenv" "$HOME"
 rm -rf "$XDG_DATA_HOME/zsh/functions"
 ln -s "$ZDOTDIR/functions" "$XDG_DATA_HOME/zsh"
 
+rm -rf "$USER_SCRIPTS"
+ln -s "$DOTFILES/scripts" "$USER_SCRIPTS"
