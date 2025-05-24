@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+
+# WARN: Some zshisms here won't work in bash.
+
+focus_fmenu() { i3-msg --quiet '[title="fmenu"] focus' }
+
+focus_fmenu && exit 0
+xdotool search --name fmenu && exit 1
+
+urxvt -title 'fmenu' -e i3-dmenu-desktop --dmenu='zsh -i -c fzf' &|
+
+# Attempt to focus newly created window
+repeat 5; do
+	focus_fmenu && exit 0
+	attempts+=1
+	sleep 0.2
+done
+
