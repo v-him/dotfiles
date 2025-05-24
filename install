@@ -4,6 +4,7 @@
 source "$HOME/dotfiles/zsh/.zshenv"
 
 for dir in "$DOTFILES"/*/; do
+	[[ $dir = "$DOTFILES/scripts/" ]] && continue
 	dir=${dir%/}
 	rm -rf "$XDG_CONFIG_HOME/${dir##*/}"
 	ln -s "$dir" "$XDG_CONFIG_HOME"
