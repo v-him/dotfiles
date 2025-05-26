@@ -16,11 +16,28 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 # Vim mode
 bindkey -v
-export KEYTIMEOUT=1
-autoload -Uz cursor_mode; cursor_mode
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
+bindkey "^J" push-line-or-edit
+bindkey -M vicmd "^J" push-line-or-edit
+
+_make_cursor_block() { echo -ne '\e[2 q' }
+_make_cursor_beam() { echo -ne '\e[6 q' }
+
+zle-keymap-select() {
+	case "$KEYMAP" in
+		vicmd) _make_cursor_block
+			;;
+		viins|main) _make_cursor_beam
+			;;
+	esac
+}
+
+zle-line-init() { _make_cursor_beam }
+
+zle -N zle-keymap-select
+zle -N zle-line-init
 
 # Set up fzf
 source "$XDG_CONFIG_HOME/fzf/config.zsh"
@@ -41,6 +58,8 @@ setopt PUSHD_SILENT
 setopt INTERACTIVE_COMMENTS
 setopt EXTENDED_GLOB
 setopt CORRECT
+setopt RC_QUOTES
+setopt BSD_ECHO
 
 # Keep at the end, after all fpath modifications
 autoload "$USER_FUNCTIONS"/**/*(.:t)
