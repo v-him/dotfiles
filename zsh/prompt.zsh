@@ -7,7 +7,7 @@ PROMPT="$current_dir$background_job_indicator$subshell_indicator$symbol "
 # To add commands to be run before each prompt
 autoload -Uz add-zsh-hook
 
-print_new_line() { print -P '' }
+print_new_line() { print '' }
 add-zsh-hook precmd print_new_line
 
 # Git branch

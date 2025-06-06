@@ -19,10 +19,11 @@ beam_cursor_command="$(
 FZF_DEFAULT_OPTS="
 $beam_cursor_command
 --bind='ctrl-t:toggle-all'
+--bind='ctrl-p:toggle-preview'
 --style=minimal
 --info=inline
 --color=fg:#ebdbb2
---color=bg:#32302f
+--color=bg:#282828
 --color=hl:#928374
 --color=fg+:#ebdbb2
 --color=bg+:#3c3836

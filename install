@@ -3,18 +3,14 @@
 # To access environment variables
 source "$HOME/dotfiles/zsh/.zshenv"
 
-for dir in "$DOTFILES"/*/; do
-	[[ $dir = "$DOTFILES/scripts/" ]] && continue
-	dir=${dir%/}
-	rm -rf "$XDG_CONFIG_HOME/${dir##*/}"
+for dir in "$DOTFILES"/^scripts/; do
+	rm -rf "$XDG_CONFIG_HOME/${dir:t}"
 	ln -s "$dir" "$XDG_CONFIG_HOME"
 done
 
 # Requirements
-mkdir -p "$XDG_DATA_HOME/tmux/plugins"
+mkdir -p "$XDG_DATA_HOME"/{zsh,vim,tmux/plugins}
 mkdir -p "$XDG_CACHE_HOME/zsh"
-mkdir -p "$XDG_DATA_HOME/zsh"
-mkdir -p "$XDG_DATA_HOME/vim"
 mkdir -p "$USER_SCRIPTS"
 
 # Exceptions
