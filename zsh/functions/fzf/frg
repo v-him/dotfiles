@@ -1,23 +1,10 @@
 # frg - [f]uzzy [r]ip[g]rep
 
-for i; do
-	eval arg=\$$i
-	eval $i='"$(printf ''%q'' "$arg")"'
-done
+emulate -RL zsh
 
-typeset reload opener
+local reload="rg --column --color=always --smart-case --with-filename --follow -- {q} ${(@q)*:-.} || true"
 
-reload="$(
-	printf 'rg --column --color=always --smart-case --with-filename {q} %s || :' "${*:-.}"
-)"
-
-opener='
-if [[ $FZF_SELECT_COUNT == 0 ]]; then
-	nvim {1} +{2}
-else
-	nvim +cw -q {+f}
-fi
-'
+local opener='if [[ $FZF_SELECT_COUNT == 0 ]]; then nvim {1} +{2}; else nvim +cw -q {+f}; fi'
 
 fzf --disabled --ansi --multi \
 	--bind "start:reload:$reload" \

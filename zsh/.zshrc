@@ -51,7 +51,6 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_REDUCE_BLANKS
-setopt HIST_VERIFY
 setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
 setopt PUSHD_SILENT
@@ -59,7 +58,11 @@ setopt INTERACTIVE_COMMENTS
 setopt EXTENDED_GLOB
 setopt CORRECT
 setopt RC_QUOTES
-setopt BSD_ECHO
+setopt RM_STAR_SILENT
+setopt BRACE_CCL
+setopt GLOB_DOTS
+
+unsetopt GLOBAL_EXPORT
 
 # Keep at the end, after all fpath modifications
 autoload "$USER_FUNCTIONS"/**/*(.:t)

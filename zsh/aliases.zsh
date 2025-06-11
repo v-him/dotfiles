@@ -50,7 +50,10 @@ alias fgrep='fgrep --color=auto'
 
 # Quick cd
 alias d='dirs -v'
-for index ({1..9}) alias "$index"="cd +${index}"; unset index
+for index in {1..9}; do
+	alias "$index"="cd +${index}"
+done
+unset index
 
 # Mac nostalgia
 alias pbcopy='xsel -ib'
