@@ -37,3 +37,16 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   end,
   desc = "Attempts to set cursor to position when last exiting the current buffer"
 })
+
+-- SET LISTCHARS
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  callback = function(event)
+    sw = vim.fn.shiftwidth()
+    vim.opt.listchars = vim.tbl_deep_extend(
+      "force",
+      vim.opt_local.listchars:get(),
+      { leadmultispace = '▏' .. (' '):rep(sw - 1) }
+    )
+  end
+})
+

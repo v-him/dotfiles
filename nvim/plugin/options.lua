@@ -16,11 +16,10 @@ vim.opt.foldopen:remove 'hor'
 vim.o.foldlevelstart = 99
 vim.o.list = true
 vim.opt.listchars = {
-  tab = "▏ ",
+  tab = "» ",
   trail = "·",
-  extends = "»",
-  precedes = "«",
-  leadmultispace = "▏ "
+  extends = "󰇘",
+  precedes = "󰇘",
 }
 
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -39,14 +38,17 @@ vim.o.inccommand = 'split'
 vim.opt.dictionary:append { '/usr/share/dict/words' }
 
 -- FORMATTING
-vim.o.expandtab = false
-vim.o.tabstop = 8
-vim.o.softtabstop = 4
-vim.o.shiftwidth = 4
 vim.o.smartindent = true
 vim.o.breakindent = true
 vim.o.linebreak = true
 vim.o.timeoutlen = 500
+
+-- Editorconfig usually overrides these
+vim.o.expandtab = false
+vim.o.tabstop = 8
+vim.o.shiftwidth = 4
+vim.o.softtabstop = -1
+--
 
 -- OS INTERACTION
 vim.o.mouse = 'a'
