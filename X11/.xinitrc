@@ -10,7 +10,7 @@ xcape -e 'Caps_Lock=Escape' &
 xset r rate 200 30
 
 # Apply default screen layout
-sh "$XDG_CONFIG_HOME/X11/default"
+sh "$XDG_CONFIG_HOME/X11/layouts/default"
 
 # Start i3
 exec i3
