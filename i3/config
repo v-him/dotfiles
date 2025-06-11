@@ -90,8 +90,5 @@ bar {
     }
 }
 
-# Starts redshift
-exec --no-startup-id redshift
-
 # Wallpaper
 exec_always --no-startup-id feh --no-fehbg --bg-fill --randomize ~/pictures/wallpapers
