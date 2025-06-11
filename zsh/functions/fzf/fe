@@ -2,6 +2,8 @@
 
 emulate -RL zsh
 
-fzf --query="$1" --multi --exit-0 --bind "enter:become(${EDITOR:-vim} {+})"
+fzf --multi --exit-0 \
+	--bind "enter:become(${EDITOR:-vim} {+})" \
+	--walker-root ${*:-.}
 
 # vim: set ft=zsh:
