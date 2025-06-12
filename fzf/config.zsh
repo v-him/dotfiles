@@ -9,15 +9,8 @@ bindkey -M viins '\C-e' fzf-cd-widget
 
 export FZF_DEFAULT_OPTS
 
-# beam_cursor is the string (including double quotes): "\e[6 q"
-beam_cursor='"\\e[6 q"'
-#beam_cursor_command is the string: --bind='start:execute(echo -ne "\e[6 q")'
-beam_cursor_command="$(
-	printf "--bind='start:execute(echo -ne %s)'" "$beam_cursor"
-)"
-
 FZF_DEFAULT_OPTS="
-$beam_cursor_command
+--bind='start:execute(echo -ne \"\\e[6 q\")'
 --bind='ctrl-t:toggle-all'
 --bind='ctrl-p:toggle-preview'
 --style=minimal
