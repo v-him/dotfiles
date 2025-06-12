@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.o.foldmethod = "expr"
     vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
   end,
-  desc = "Start Treesitter"
+  desc = "Start Treesitter folding"
 })
 
 -- REMEMBER LAST LOCATION
@@ -40,13 +40,15 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 
 -- SET LISTCHARS
 vim.api.nvim_create_autocmd("BufWinEnter", {
-  callback = function(event)
-    sw = vim.fn.shiftwidth()
+  group = vim.api.nvim_create_augroup("set_listchars", { clear = true }),
+  callback = function()
+    local sw = vim.fn.shiftwidth()
     vim.opt.listchars = vim.tbl_deep_extend(
       "force",
       vim.opt_local.listchars:get(),
       { leadmultispace = '▏' .. (' '):rep(sw - 1) }
     )
-  end
+  end,
+  desc = "Sets listchars to display indent guides according to shiftwidth value."
 })
 
