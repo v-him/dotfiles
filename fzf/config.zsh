@@ -3,9 +3,9 @@ source <(fzf --zsh)
 
 # Override ALT-C for CTRL-E
 zle     -N             fzf-cd-widget
-bindkey -M emacs '\C-e' fzf-cd-widget
-bindkey -M vicmd '\C-e' fzf-cd-widget
-bindkey -M viins '\C-e' fzf-cd-widget
+bindkey -M emacs '^E' fzf-cd-widget
+bindkey -M vicmd '^E' fzf-cd-widget
+bindkey -M viins '^E' fzf-cd-widget
 
 export FZF_DEFAULT_OPTS
 

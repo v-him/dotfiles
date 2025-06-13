@@ -28,6 +28,5 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 export LESSHISTFILE="$XDG_DATA_HOME/lesshst"
 export DIRSTACKSIZE=10
-export KEYTIMEOUT=1
 
 export DOTFILES="${HOME%/}/dotfiles"
