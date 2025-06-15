@@ -59,3 +59,10 @@ set('n', '<leader>tf', function()
 end, opts({ desc = 'Toggle foldcolumn' }))
 
 set('n', 'K', function() vim.lsp.buf.hover({ border = 'rounded' }) end, {})
+
+-- Toggle status line
+set('n', '<leader>ts',
+  function()
+    vim.o.laststatus = (vim.o.laststatus == 0) and 2 or 0
+  end,
+  opts({ desc = 'Toggle status line' }))

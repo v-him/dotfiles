@@ -38,7 +38,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   desc = "Attempts to set cursor to position when last exiting the current buffer"
 })
 
--- SET LISTCHARS
+-- SET INDENT GUIDES
 vim.api.nvim_create_autocmd("BufWinEnter", {
   group = vim.api.nvim_create_augroup("set_listchars", { clear = true }),
   callback = function()
@@ -51,4 +51,3 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
   end,
   desc = "Sets listchars to display indent guides according to shiftwidth value."
 })
-

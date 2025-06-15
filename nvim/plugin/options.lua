@@ -7,6 +7,7 @@ vim.o.splitright = true
 vim.o.showmode = false
 vim.o.pumheight = 10
 vim.o.conceallevel = 0
+vim.o.ruler = false
 vim.opt.shortmess:append 'c'
 vim.o.cmdheight = 1
 vim.o.signcolumn = 'yes'
