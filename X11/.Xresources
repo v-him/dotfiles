@@ -38,7 +38,7 @@
 URxvt*font: xft:CaskaydiaMono NFM:style=Regular:pixelsize=36:antialias=true
 URxvt*borderLess: false
 URxvt*externalBorder: 0
-URxvt*internalBorder: 4
+URxvt*internalBorder: 0
 URxvt*scrollBar: false
 URxvt*saveLines: 5000
 
