@@ -29,7 +29,7 @@ alias ls="ls --color=auto"
 alias la="ls --color=auto -a"
 alias ll="ls --color=auto -lah"
 
-# a quick way to get out of current directory ##
+# Quick way to get out of current directory
 alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'
@@ -43,24 +43,19 @@ alias ...........='cd ../../../../../../../../../../'
 alias ............='cd ../../../../../../../../../../../'
 alias .............='cd ../../../../../../../../../../../../'
 
-# Colorize the grep command output for ease of use (good for log files)##
+# Colorize the grep command
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
 # Quick cd
 alias d='dirs -v'
-for index in {1..9}; do
-	alias "$index"="cd +${index}"
-done
+for index in {1..9}; alias $index="cd +$index"
 unset index
 
 # Mac nostalgia
 alias pbcopy='xsel -ib'
 alias pbpaste='xsel -ob'
-
-# Quick reload
-alias rr="source $XDG_CONFIG_HOME/zsh/.zshrc"
 
 # tmuxp
 alias rec="tmuxp load --yes recording"

@@ -1,24 +1,25 @@
 #!/usr/bin/env zsh
 
 # To access environment variables
-source "$HOME/dotfiles/zsh/.zshenv"
+source $HOME/dotfiles/zsh/.zshenv
 
-for dir in "$DOTFILES"/^scripts/; do
-	rm -rf "$XDG_CONFIG_HOME/${dir:t}"
-	ln -s "$dir" "$XDG_CONFIG_HOME"
+setopt EXTENDED_GLOB
+for dir in $DOTFILES/^scripts/; do
+	rm -rf $XDG_CONFIG_HOME/${dir:t}
+	ln -s $dir $XDG_CONFIG_HOME
 done
 
 # Requirements
-mkdir -p "$XDG_DATA_HOME"/{zsh,vim,tmux/plugins}
-mkdir -p "$XDG_CACHE_HOME/zsh"
-mkdir -p "$USER_SCRIPTS"
+mkdir -p $XDG_DATA_HOME/{zsh,vim,tmux/plugins}
+mkdir -p $XDG_CACHE_HOME/zsh
+mkdir -p $USER_SCRIPTS
 
 # Exceptions
-ln -sf "$DOTFILES/.editorconfig" "$HOME"
-ln -sf "$ZDOTDIR/.zshenv" "$HOME"
+ln -sf $DOTFILES/.editorconfig $HOME
+ln -sf $ZDOTDIR/.zshenv $HOME
 
-rm -rf "$XDG_DATA_HOME/zsh/functions"
-ln -s "$ZDOTDIR/functions" "$XDG_DATA_HOME/zsh"
+rm -rf $XDG_DATA_HOME/zsh/functions
+ln -s $ZDOTDIR/functions $XDG_DATA_HOME/zsh
 
-rm -rf "$USER_SCRIPTS"
-ln -s "$DOTFILES/scripts" "$USER_SCRIPTS"
+rm -rf $USER_SCRIPTS
+ln -s $DOTFILES/scripts $USER_SCRIPTS

@@ -2,17 +2,16 @@
 source <(fzf --zsh)
 
 # Override ALT-C for CTRL-E
-zle     -N             fzf-cd-widget
 bindkey -M emacs '^E' fzf-cd-widget
 bindkey -M vicmd '^E' fzf-cd-widget
 bindkey -M viins '^E' fzf-cd-widget
 
 export FZF_DEFAULT_OPTS
 
-FZF_DEFAULT_OPTS="
---bind='start:execute(echo -ne \"\\e[6 q\")'
---bind='ctrl-t:toggle-all'
---bind='ctrl-p:toggle-preview'
+FZF_DEFAULT_OPTS='
+--bind=''start:execute(print -n "\e[6 q")''
+--bind=ctrl-t:toggle-all
+--bind=ctrl-p:toggle-preview
 --style=minimal
 --info=inline
 --color=fg:#ebdbb2
@@ -27,5 +26,5 @@ FZF_DEFAULT_OPTS="
 --color=pointer:#fb4934
 --color=marker:#fb4934
 --color=prompt:#fb4934
-"
+'
 
