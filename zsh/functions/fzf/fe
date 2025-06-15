@@ -2,8 +2,12 @@
 
 emulate -RL zsh
 
-fzf --multi --exit-0 \
-	--bind "enter:become(${EDITOR:-vim} {+})" \
-	--walker-root ${*:-.}
+local -a files
+
+files=(${(0)"$(fzf --multi --exit-0 --print0 --walker-root ${*:-.})"})
+
+print -rs -- ${EDITOR:-vim} ${(q+)files:?"Error: No files to edit"}
+
+${EDITOR:-vim} $files
 
 # vim: set ft=zsh:
