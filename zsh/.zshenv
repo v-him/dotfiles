@@ -5,7 +5,7 @@ export XDG_CACHE_HOME=$HOME/.cache
 
 export EDITOR=nvim
 export VISUAL=nvim
-export MANPAGER='nvim +Man! +set laststatus=0 +set cmdheight=0'
+export MANPAGER='nvim +Man! +"set laststatus=0" +"set cmdheight=0"'
 
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 export USER_FUNCTIONS=$XDG_DATA_HOME/zsh/functions
@@ -24,6 +24,7 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 export LESSHISTFILE=$XDG_DATA_HOME/lesshst
 export DIRSTACKSIZE=10
+export CORRECT_IGNORE='_*'
 
 export RIPGREP_CONFIG_PATH=$XDG_CONFIG_HOME/rg/conf
 
