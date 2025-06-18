@@ -1,0 +1,3 @@
+# vim: set ft=zsh:
+
+_display_help "bash -c 'builtin help ${(@q)*}'"
