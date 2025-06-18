@@ -1,10 +1,12 @@
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
-# Override ALT-C for CTRL-E
-bindkey -M emacs '^E' fzf-cd-widget
-bindkey -M vicmd '^E' fzf-cd-widget
-bindkey -M viins '^E' fzf-cd-widget
+fzf-history-widget-accept() {
+  fzf-history-widget
+  zle accept-line
+}
+
+zle -N fzf-history-widget-accept
 
 export FZF_DEFAULT_OPTS
 

@@ -38,6 +38,7 @@ bindkey -rpM viins "^["
 bindkey -rpM menuselect "^["
 
 bindkey "^B" push-line-or-edit
+bindkey "^E" fzf-cd-widget
 bindkey "^I" menu-expand-or-complete
 bindkey "^J" down-history
 bindkey "^K" up-history
@@ -45,9 +46,11 @@ bindkey "^N" menu-complete
 bindkey "^O" undo
 bindkey "^P" reverse-menu-complete
 bindkey "^U" kill-whole-line
+bindkey '^X^R' fzf-history-widget-accept
 bindkey "^Y" accept-and-infer-next-history
 
 bindkey -M vicmd v edit-command-line
+bindkey -M vicmd '^E' fzf-cd-widget
 bindkey -M vicmd "^J" down-history
 bindkey -M vicmd "^K" up-history
 
