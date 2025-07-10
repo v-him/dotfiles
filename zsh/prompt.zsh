@@ -4,9 +4,7 @@ background_job_indicator='%(1j.%F{red}%f .)'
 symbol='%(?.%F{blue}.%F{red})>%f'
 PROMPT="$current_dir$background_job_indicator$subshell_indicator$symbol "
 
-# To add commands to be run before each prompt
 autoload -Uz add-zsh-hook
-
 print_new_line() { print }
 add-zsh-hook precmd print_new_line
 
@@ -17,3 +15,5 @@ add-zsh-hook precmd vcs_info
 zstyle ':vcs_info:git:*' formats '%F{yellow}γ:%f%F{blue}%r%f at %F{magenta}%b%f'
 RPROMPT='${vcs_info_msg_0_}'
 
+SPROMPT="Correct '%R' to '%r'?
+[Y]es, [N]o, [A]bort, [E]dit: "

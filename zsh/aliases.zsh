@@ -25,9 +25,10 @@ alias nv='nvim'
 alias view='nvim -R'
 
 # Better ls
-alias ls="ls --color=auto"
-alias la="ls --color=auto -a"
-alias ll="ls --color=auto -lah"
+alias ls="ls --color=auto --classify=auto --group-directories-first"
+alias la="ls -A"
+alias lr="ls -R"
+alias ll="la -oh"
 
 # Quick way to get out of current directory
 alias ..='cd ../'
@@ -45,8 +46,6 @@ alias .............='cd ../../../../../../../../../../../../'
 
 # Colorize the grep command
 alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
 
 # Quick cd
 alias d='dirs -v'

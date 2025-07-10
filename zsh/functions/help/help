@@ -1,3 +1,23 @@
 # vim: set ft=zsh:
+local output
+local -i exit_status
 
-_display_help "${(@q)*} --help"
+case $0 in
+	help)
+		output=$($* --help 2>&1)
+		exit_status=$?
+		;;
+	bhelp)
+		output=$(bash -c "builtin help $*")
+		exit_status=$?
+		;;
+	*)
+		return 1
+esac
+
+if (( exit_status != 0 )); then
+	print -- $output >&2
+	return $exit_status
+fi
+
+bat --style=plain --language=help <<<$output

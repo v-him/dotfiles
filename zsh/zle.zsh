@@ -1,58 +1,50 @@
-# Completion
-zmodload zsh/complist
-autoload -Uz compinit && compinit -d "$XDG_CACHE_HOME/zsh/.zcompdump"
-_comp_options+=(globdots)
-
-source "$ZDOTDIR/external/completion.zsh"
-
 # Vim mode
 bindkey -v
 
-zle-keymap-select() {
+function block-cursor {
 	typeset block_cursor_sequence='\e[2 q'
-	typeset beam_cursor_sequence='\e[6 q'
-	case $KEYMAP in
-		vicmd) print -n $block_cursor_sequence
-			;;
-		viins|main) print -n $beam_cursor_sequence
-			;;
-	esac
+	print -n $block_cursor_sequence
 }
 
-zle-line-init() {
+function beam-cursor {
 	typeset beam_cursor_sequence='\e[6 q'
 	print -n $beam_cursor_sequence
+}
+
+function zle-keymap-select {
+	case $KEYMAP in
+		vicmd) block-cursor
+			;;
+		viins|main) beam-cursor
+			;;
+	esac
 }
 
 autoload -Uz edit-command-line
 
 zle -N zle-keymap-select
-zle -N zle-line-init
+zle -N zle-line-init beam-cursor
 zle -N edit-command-line
 
 # Custom keybindings
 
-# Remove all keybindings in insert mode that start with escape (except escape itself)
-# Notably, this disables arrow keys
-bindkey -rpM viins "^["
-bindkey -rpM menuselect "^["
+export KEYTIMEOUT=1
 
 bindkey "^B" push-line-or-edit
 bindkey "^E" fzf-cd-widget
-bindkey "^I" menu-expand-or-complete
+bindkey "^I" expand-word
 bindkey "^J" down-history
 bindkey "^K" up-history
 bindkey "^N" menu-complete
-bindkey "^O" undo
 bindkey "^P" reverse-menu-complete
-bindkey "^U" kill-whole-line
-bindkey '^X^R' fzf-history-widget-accept
+bindkey "^U" kill-buffer
 bindkey "^Y" accept-and-infer-next-history
+bindkey '^?' backward-delete-char
 
-bindkey -M vicmd v edit-command-line
-bindkey -M vicmd '^E' fzf-cd-widget
 bindkey -M vicmd "^J" down-history
 bindkey -M vicmd "^K" up-history
+bindkey -M vicmd '^E' fzf-cd-widget
+bindkey -M vicmd '^[' zle-keymap-select
 
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history

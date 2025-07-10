@@ -1,13 +1,6 @@
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
-fzf-history-widget-accept() {
-  fzf-history-widget
-  zle accept-line
-}
-
-zle -N fzf-history-widget-accept
-
 export FZF_DEFAULT_OPTS
 
 FZF_DEFAULT_OPTS='
@@ -29,4 +22,3 @@ FZF_DEFAULT_OPTS='
 --color=marker:#fb4934
 --color=prompt:#fb4934
 '
-

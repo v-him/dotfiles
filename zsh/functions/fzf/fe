@@ -1,7 +1,5 @@
 # fe [FUZZY PATTERN] - Open the selected file(s) with the default editor
 
-emulate -RL zsh
-
 local -a files
 
 files=(${(0)"$(fzf --multi --exit-0 --preview 'bat --color=always {}' --print0 --walker-root ${*:-.})"})
