@@ -58,3 +58,6 @@ alias pbpaste='xsel -ob'
 
 # tmuxp
 alias rec="tmuxp load --yes recording"
+
+# SICP
+alias sicp="racket -il sicp"

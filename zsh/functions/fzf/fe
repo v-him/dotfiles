@@ -2,7 +2,7 @@
 
 local -a files
 
-files=(${(0)"$(fzf --multi --exit-0 --preview 'bat --color=always {}' --print0 --walker-root ${*:-.})"})
+files=(${(0)"$(fzf --multi --ghost='Enter a file path' --exit-0 --preview 'bat --color=always {}' --print0 --walker-root ${*:-.})"})
 
 print -rs -- ${EDITOR:-vim} ${(q+)files:?"Error: No files to edit"}
 

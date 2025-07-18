@@ -11,5 +11,6 @@ fzf --disabled --ansi --multi \
 	--delimiter : \
 	--preview 'bat --style=numbers --color=always --highlight-line {2} {1}' \
 	--preview-window '+{2}/2'
+	--ghost='Enter a pattern'
 
 # vim: set ft=zsh:

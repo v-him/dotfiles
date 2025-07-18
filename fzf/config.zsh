@@ -21,4 +21,5 @@ FZF_DEFAULT_OPTS='
 --color=pointer:#fb4934
 --color=marker:#fb4934
 --color=prompt:#fb4934
+--color=ghost:#a89984
 '
