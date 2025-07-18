@@ -2,12 +2,14 @@
 
 # WARN: Some zshisms here won't work in bash.
 
-focus_fmenu() { i3-msg --quiet '[title="fmenu"] focus' }
+function focus_fmenu { i3-msg --quiet '[title="fmenu"] focus' }
 
 focus_fmenu && exit 0
 xdotool search --name fmenu && exit 1
 
-urxvt -title 'fmenu' -e i3-dmenu-desktop --dmenu='zsh -i -c fzf' &|
+typeset fzf_cmd='fzf --ghost="Enter an application name"'
+
+urxvt -title 'fmenu' -e i3-dmenu-desktop --dmenu="zsh -i -c '$fzf_cmd'" &|
 
 # Attempt to focus newly created window
 repeat 5; do
