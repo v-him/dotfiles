@@ -9,7 +9,7 @@ tabstop = 8
 indent_size = 4
 indent_style = tab
 
-[*.{html,astro,css,js,jsx,ts,tsx,json,lua,yaml,yml,txt,md}]
+[*.{html,astro,css,js,jsx,ts,tsx,json,lua,yaml,yml,scm,txt,md}]
 indent_style = space
 indent_size = 2
 
